@@ -15,7 +15,7 @@
 
     <div class="main-part">
 
-      <MyFilter />
+      <MyFilter @change="updateFilter" />
 
       <div class="people">
 
@@ -26,12 +26,11 @@
         <Loader v-if="isLoading" />
 
         <div v-if="!isLoading" class="cards">
-          <Card v-for="(person, i) in peoples" :key="i" :person="person" />
+          <Card v-for="(person, i) in onSwow" :key="i" :person="person" />
         </div>
 
         <Pagination v-if="!isLoading" :curPage="page" :countOfPeople="countOfPeople" @change="getPeoples" />
       </div>
-
 
     </div>
 
@@ -43,7 +42,9 @@ import Card from './Card'
 import Pagination from './Pagination'
 import MyFilter from './Filter'
 import Loader from './Loader'
-import get from '../api/apiPeople'
+// import get from '../api/apiPeople'
+
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   components: {
@@ -56,9 +57,11 @@ export default {
   data() {
     return {
       page: 1,
-      countOfPeople: 0,
-      peoples: [],
-      isLoading: false,
+      filterParams: {
+        gender: [],
+        eye_color: [],
+      },
+      onSwow: [],
     }
   },
 
@@ -69,19 +72,39 @@ export default {
   methods: {
     getPeoples(page) {
       this.page = page
-      this.isLoading = true
-      get(page)
-      .then(res => {
-        console.log(res.data.results);
-        this.countOfPeople = res.data.count
-        this.peoples = res.data.results
-        this.isLoading = false
+      this.fetchPeoples(page)
+    },
+
+    updateFilter(params) {
+      this.filterParams = params
+      this.updatePeoplesList()
+    },
+
+    updatePeoplesList() {
+      this.onSwow = 
+        this.people.filter(person => {
+          return (this.filterParams.eye_color.includes(person.eye_color) || !this.filterParams.eye_color.length) &&
+                  (this.filterParams.gender.includes(person.gender) || !this.filterParams.gender.length)
       })
-      .catch(err => {
-        this.isLoading = false
-        console.log(err)
-      })
+    },
+
+    ...mapActions({
+      fetchPeoples: 'FETCH_PEOPLES'
+    }),
+  },
+
+  watch: {
+    people: function() {
+      this.updatePeoplesList()
     }
+  },
+
+  computed: {
+    ...mapGetters({
+      people: 'GET_PEOPLES',
+      countOfPeople: 'GET_COUNT_PEOPLE',
+      isLoading: 'GET_LOADING_STATUS',
+    })
   }
 }
 </script>

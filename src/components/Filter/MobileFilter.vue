@@ -88,6 +88,7 @@ export default {
           this.filter.yellow = val
           break
       }
+      this.$emit('change', this.filter)
     }
   }
 }

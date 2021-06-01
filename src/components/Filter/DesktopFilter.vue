@@ -24,9 +24,6 @@
       </div>
 
     </div>
-
-    
-
   </div>
 </template>
 <script>
@@ -39,7 +36,6 @@ export default {
   
   data() {
     return {
-      // isMobile: null,
       filter: {
         male: false,
         female: false,
@@ -53,13 +49,6 @@ export default {
         
     }
   },
-
-  // mounted() {
-  //   const mediaQuery = window.matchMedia('(max-width: 590px)')
-  //   mediaQuery.addListener(() => {
-  //     this.isMobile = window.matchMedia('(max-width: 590px)').matches
-  //   })
-  // },
 
   methods: {
     updateFiltr(name, val) {
@@ -87,7 +76,7 @@ export default {
           this.filter.yellow = val
           break
       }
-      console.log(this.filter);
+      this.$emit('change', this.filter)
     }
   }
 }

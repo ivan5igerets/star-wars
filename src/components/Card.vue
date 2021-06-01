@@ -29,7 +29,7 @@
 export default {
   props: ['person'],
   mounted() {
-    console.log(this.person);
+    // console.log(this.person);
   }
 }
 </script>
