@@ -22,7 +22,10 @@
       <div class="people">
 
         <div class="people-search">
-          <input placeholder="Type name" type="text">
+          <div class="input-wrapper">
+            <img src="../assets/search-solid.svg" alt="">
+            <input type="text" placeholder="Type name">
+          </div>
         </div>
 
         <Loader v-if="isLoading" />
@@ -165,39 +168,52 @@ export default {
         // padding: 10px;
         display: flex;
         
-        input {
+        .input-wrapper {
           height: 50px;
           border: 1px solid #E1E7EC;
           border-radius: 2px;
           background: #fff;
           // width: 100%;
           flex: 1 1 100%;
-          font-family: Nunito;
-          font-style: normal;
-          font-weight: normal;
-          font-size: 14px;
-          line-height: 19px;
-          padding: 0 0 0 20px;
+          display: flex;
+
+          img {
+            width: 42px;
+            height: 17px;
+            align-self: center;
+            margin-right: 16px;
+          }
+
+          input {
+            width: 100%;
+            border: none;
+            height: 100%;
+            outline: none;
+            font-family: Nunito;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 19px;
+
+            &::placeholder {
+              color: #BDC2C7;
+            }
+          }
 
           @media screen and (max-width: 1175px) {
-            flex: 0 1 667px;
+            flex: 0 1 687px;
           }
 
           @media screen and (max-width: 1004px) {
-            flex: 0 1 495px;
+            flex: 0 1 514px;
           }
           
           @media screen and (max-width: 832px) {
-            flex: 0 1 323px;
+            flex: 0 1 343px;
           }
 
           @media screen and (max-width: 660px) {
             flex: 1 1 100%;
-          }
-
-
-          &::placeholder {
-            color: #BDC2C7;
           }
         }
       }
