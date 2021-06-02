@@ -16,7 +16,7 @@
       <div class="params-item">
         <div class="params-item-name">Birth year</div>
         <div class="params-item-value"> {{person.birth_year}} </div>
-      </div> 
+      </div>  
 
       <div class="params-item">
         <div class="params-item-name">Gender</div> 
