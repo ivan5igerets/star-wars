@@ -8,8 +8,10 @@
     </div>
 
     <div class="path"> 
-      <p class="path-text orange">Star Wars</p> >
-      <p class="path-text orange">Database</p> >
+      <p class="path-text orange">Star Wars</p> &nbsp;
+      <i class="fas fa-angle-right fa-1x" style="color: #BDC2C7; margin: 0 5px;"></i> &nbsp;
+      <p class="path-text orange">Database</p> &nbsp;
+      <i class="fas fa-angle-right" style="color: #BDC2C7; margin: 0 5px;"></i> &nbsp;
       <p class="path-text gray">Peoples</p>
     </div>
 

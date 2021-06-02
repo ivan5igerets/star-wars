@@ -1,7 +1,8 @@
 <template>
   <div class="card">
     <div class="frame">
-      <img src="../assets/user.svg" alt="">
+      <img v-if="person.gender === 'male'" src="../assets/male.svg" alt="">
+      <img v-else src="../assets/female.svg" alt="">
     </div>
 
     <div class="name">{{person.name}}</div>
@@ -19,7 +20,8 @@
 
       <div class="params-item">
         <div class="params-item-name">Gender</div>
-        <div class="params-item-value">{{person.gender}}</div>
+        <div v-if="person.gender==='male'" style="color: #00c4ff;" class="params-item-value"><i class="fas fa-mars"></i></div>
+        <div v-else style="color: #e235d5;" class="params-item-value"><i class="fas fa-venus"></i></div>
       </div>
     </div>
   </div>
@@ -28,9 +30,6 @@
 <script>
 export default {
   props: ['person'],
-  mounted() {
-    // console.log(this.person);
-  }
 }
 </script>
 

@@ -1,6 +1,17 @@
 <template>
   <div class="filter">
-    <div class="filter-header" @click="openClose">Filter</div>
+    <div class="filter-header" @click="openClose">
+      <div>Filter</div>
+
+      <div v-show="!isOpenFilter">
+        <i class="fas fa-angle-up"></i>
+      </div>
+      
+      <div v-show="isOpenFilter">
+        <i class="fas fa-angle-down"></i>
+      </div>
+
+    </div>
 
     <div class="filter-body-wrapper">
     <transition name="fade">
@@ -149,6 +160,8 @@ export default {
         text-align: left;
         padding: 10px 12px;
         border-bottom: 2px solid #F3F7FA;
+        display: flex;
+        justify-content: space-between;
         // position: relative;
         // background: crimson;
       }
