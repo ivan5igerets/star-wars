@@ -24,7 +24,7 @@
         <div class="people-search">
           <div class="input-wrapper">
             <img src="../assets/search-solid.svg" alt="">
-            <input type="text" placeholder="Type name">
+            <input type="text" v-model="filterParams.search_text" placeholder="Type name">
           </div>
         </div>
 
@@ -65,6 +65,7 @@ export default {
       filterParams: {
         gender: [],
         eye_color: [],
+        search_text: '',
       },
       onSwow: [],
     }
@@ -81,15 +82,18 @@ export default {
     },
 
     updateFilter(params) {
-      this.filterParams = params
+      this.filterParams.gender = params.gender
+      this.filterParams.eye_color = params.eye_color  
       this.updatePeoplesList()
     },
 
     updatePeoplesList() {
+      this.filterParams.search_text = this.filterParams.search_text.trim()
       this.onSwow = 
         this.people.filter(person => {
           return (this.filterParams.eye_color.includes(person.eye_color) || !this.filterParams.eye_color.length) &&
-                  (this.filterParams.gender.includes(person.gender) || !this.filterParams.gender.length)
+                  (this.filterParams.gender.includes(person.gender) || !this.filterParams.gender.length) &&
+                  ( (person.name.toLowerCase()).includes(this.filterParams.search_text) || !this.filterParams.search_text)
       })
     },
 
@@ -100,6 +104,10 @@ export default {
 
   watch: {
     people: function() {
+      this.updatePeoplesList()
+    },
+
+    'filterParams.search_text': function() {
       this.updatePeoplesList()
     }
   },
