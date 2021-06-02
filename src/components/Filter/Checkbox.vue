@@ -56,24 +56,19 @@ export default {
   background-size: 10px;
 }
 
-/* стили при наведении курсора на checkbox */
 .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
   border-color: #fb72636c;
 }
-/* стили для активного состояния чекбокса (при нажатии на него) */
 .custom-checkbox:not(:disabled):active+label::before {
   background-color: #fb72636c;
   border-color: #fb72636c;
 }
-/* стили для чекбокса, находящегося в фокусе */
 .custom-checkbox:focus+label::before {
   box-shadow: 0 0 0 0.2rem #fb726356;
 }
-/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
 .custom-checkbox:focus:not(:checked)+label::before {
   border-color: #fb72636c;
 }
-/* стили для чекбокса, находящегося в состоянии disabled */
 .custom-checkbox:disabled+label::before {
   background-color: #e9ecef;
 }

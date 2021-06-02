@@ -131,14 +131,6 @@ export default {
       border-radius: 2px;
       align-self: flex-start;
       margin: 0 0 10px 0;
-      // margin: 0 30px 0 0;
-      // margin: 0 10px;
-
-      // @media screen and (max-width: 590px) {
-      //   width: 100%;
-      //   height: 100%;
-      //   margin: 0 0 10px 0;
-      // }
 
       &-header {
         font-family: Nunito;
@@ -152,13 +144,10 @@ export default {
         border-bottom: 2px solid #F3F7FA;
         display: flex;
         justify-content: space-between;
-        // position: relative;
-        // background: crimson;
       }
     
 
       &-body {
-        // background: lightcoral;
         &-wrapper {overflow: hidden;}
         
         &-block {
