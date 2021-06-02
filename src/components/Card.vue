@@ -19,7 +19,7 @@
       </div>
 
       <div class="params-item">
-        <div class="params-item-name">Gender</div>
+        <div class="params-item-name">Gender</div> 
         <div v-if="person.gender==='male'" style="color: #00c4ff;" class="params-item-value"><i class="fas fa-mars"></i></div>
         <div v-if="person.gender==='female'" style="color: #e235d5;" class="params-item-value"><i class="fas fa-venus"></i></div>
         <div v-if="person.gender!=='female' && person.gender!=='male'" style="color: #6cfb63;" class="params-item-value"><i class="fab fa-android"></i></div>
