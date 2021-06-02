@@ -1,8 +1,8 @@
 <template>
   <div class="card">
     <div class="frame">
-      <img v-if="person.gender === 'male'" src="../assets/male.svg" alt="">
-      <img v-else src="../assets/female.svg" alt="">
+      <img v-if="person.gender === 'female'" src="../assets/female.svg" alt="">
+      <img v-else src="../assets/male.svg" alt="">
     </div>
 
     <div class="name">{{person.name}}</div>
