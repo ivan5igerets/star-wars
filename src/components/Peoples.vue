@@ -30,11 +30,15 @@
 
         <Loader v-if="isLoading" />
 
-        <div v-if="!isLoading" class="cards">
-          <Card v-for="(person, i) in onSwow" :key="i" :person="person" />
+        <div v-if="!isLoading && onShow.length" class="cards">
+          <Card v-for="(person, i) in onShow" :key="i" :person="person" />
         </div>
 
-        <Pagination v-if="!isLoading || ! onSwow.length" :curPage="page" :countOfPeople="countOfPeople" @change="getPeoples" />
+        <div class="results" v-if="!isLoading && !onShow.length">
+          No such results
+        </div>
+
+        <Pagination v-if="!isLoading || ! onShow.length" :curPage="page" :countOfPeople="countOfPeople" @change="getPeoples" />
       </div>
 
     </div>
@@ -47,7 +51,6 @@ import Card from './Card'
 import Pagination from './Pagination'
 import MyFilter from './Filter'
 import Loader from './Loader'
-// import get from '../api/apiPeople'
 
 import {mapActions, mapGetters} from 'vuex'
 
@@ -67,7 +70,7 @@ export default {
         eye_color: [],
         search_text: '',
       },
-      onSwow: [],
+      onShow: [],
     }
   },
 
@@ -89,7 +92,7 @@ export default {
 
     updatePeoplesList() {
       this.filterParams.search_text = this.filterParams.search_text.trim()
-      this.onSwow = 
+      this.onShow = 
         this.people.filter(person => {
           return (this.filterParams.eye_color.includes(person.eye_color) || !this.filterParams.eye_color.length) &&
                   (this.filterParams.gender.includes(person.gender) || !this.filterParams.gender.length) &&
@@ -124,13 +127,11 @@ export default {
 
 <style lang="scss">
 .container {
-  // background: brown;
   max-width: 1136px;
   margin: auto;
   padding: 25px 20px 0 20px;
 
   .top-part {
-      // margin: 25px 0 0 0;
     .label {
       margin: 0 0 25px 0;
     }
@@ -171,6 +172,10 @@ export default {
 
     .people {
       flex: 1 1 100%;
+
+      .results {
+        margin: 100px auto;
+      }
 
       &-search {
         // padding: 10px;
@@ -231,11 +236,7 @@ export default {
         flex-wrap: wrap;
         margin: 30px 0;
       }
-
-
-
     }
-    
   }
 }
 </style>

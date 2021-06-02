@@ -107,35 +107,25 @@ export default {
 
 <style lang="scss" scoped>
 .fade-enter {
-//  height: 0%;
   margin-top: -286px;
   transition: .5s; 
 }
 
 .fade-enter-active{
   transition: .5s; 
-  // transform: translateY(100px);
 } 
 .fade-leave-active {
   transition: 10s;
   margin-top: -286px;
-  // transform: translateY(-100px);
-  // margin: 100px;
 }
 
-.fade-leave /* .fade-leave-active до версии 2.1.8 */ {
-  // opacity: 1
-  // margin: -125px;
-  // height: 100%;
-  // margin-top: 100%;
-  // margin-top: 0px;
+.fade-leave  {
   transition: .5s; 
 }
 
   .filter {
       width: 100%;
       overflow: hidden;
-      // height: 320px;
       background: #FFFFFF;
       box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05);
       border-radius: 2px;

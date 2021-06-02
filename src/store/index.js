@@ -26,7 +26,6 @@ export default new Vuex.Store({
       commit('SET_LOADING', true)
       api(page)
       .then(res => {
-        // console.log(res.data.results);
         commit('SET_PEOPLES', res.data.results)
         commit('SET_LOADING', false)
         commit('SET_COUNT_OF_PEOPLE', res.data.count)

@@ -35,7 +35,6 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  // flex: 20;
   flex-basis: 170px;
   height: 265px;
   background: #fff;
@@ -43,9 +42,7 @@ export default {
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.05);
 
   @media screen and (max-width: 660px) {
-    // justify-content: center;
     flex: 1 1 160px;
-    // flex-grow: 1;
   }
 
   .frame {
