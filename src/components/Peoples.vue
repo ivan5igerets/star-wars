@@ -29,7 +29,7 @@
           <Card v-for="(person, i) in onSwow" :key="i" :person="person" />
         </div>
 
-        <Pagination v-if="!isLoading" :curPage="page" :countOfPeople="countOfPeople" @change="getPeoples" />
+        <Pagination v-if="!isLoading || ! onSwow.length" :curPage="page" :countOfPeople="countOfPeople" @change="getPeoples" />
       </div>
 
     </div>
